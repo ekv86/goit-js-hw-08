@@ -7,5 +7,5 @@ const onPlay = function (timeupdate) {
 
 player.on('timeupdate', throttle((onPlay), 1000));
 const currentSecond = JSON.parse(localStorage.getItem("videoplayer-current-time"));
-console.log(currentSecond);
+
 player.setCurrentTime(currentSecond.seconds);

@@ -513,7 +513,6 @@ const onPlay = function(timeupdate) {
 };
 player.on("timeupdate", _lodashThrottle(onPlay, 1000));
 const currentSecond = JSON.parse(localStorage.getItem("videoplayer-current-time"));
-console.log(currentSecond);
 player.setCurrentTime(currentSecond.seconds);
 
 },{"@vimeo/player":"kmmUG","lodash.throttle":"bGJVT","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kmmUG":[function(require,module,exports) {
