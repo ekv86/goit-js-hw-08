@@ -10,14 +10,14 @@ const formData = {};
 getSavedItems();
 
 function onClick(evt) {
-    const formElements = evt.currentTarget.elements;
+    const formElements = formEl.elements;
     const email = formElements.email.value;
     const message = formElements.message.value;
-    
+
     formData.email = email;
     formData.message = message;
-   
-    localStorage.setItem("feedback-form-state", JSON.stringify(formData))
+    
+    localStorage.setItem("feedback-form-state", JSON.stringify(formData));
 }
 
 function onSubmit(evt) {
@@ -29,9 +29,12 @@ function onSubmit(evt) {
 
 function getSavedItems() {
     const savedItems = JSON.parse(localStorage.getItem("feedback-form-state"));
+    
     if (savedItems) {
         formEl.elements.email.value = savedItems.email;
         formEl.elements.message.value = savedItems.message;
     }
+    formData.email = formEl.elements.email.value;
+    formData.message = formEl.elements.message.value;
 }
 

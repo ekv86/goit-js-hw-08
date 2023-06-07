@@ -509,11 +509,11 @@ var _playerDefault = parcelHelpers.interopDefault(_player);
 var _lodashThrottle = require("lodash.throttle");
 const player = new (0, _playerDefault.default)("vimeo-player");
 const onPlay = function(timeupdate) {
-    localStorage.setItem("videoplayer-current-time", JSON.stringify(timeupdate));
+    localStorage.setItem("videoplayer-current-time", JSON.stringify(timeupdate.seconds));
 };
 player.on("timeupdate", _lodashThrottle(onPlay, 1000));
-const currentSecond = JSON.parse(localStorage.getItem("videoplayer-current-time"));
-player.setCurrentTime(currentSecond.seconds);
+const currentSecond = JSON.parse(localStorage.getItem("videoplayer-current-time")) ?? 0;
+player.setCurrentTime(currentSecond);
 
 },{"@vimeo/player":"kmmUG","lodash.throttle":"bGJVT","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kmmUG":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");

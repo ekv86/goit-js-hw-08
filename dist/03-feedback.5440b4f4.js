@@ -510,7 +510,7 @@ formEl.addEventListener("submit", onSubmit);
 const formData = {};
 getSavedItems();
 function onClick(evt) {
-    const formElements = evt.currentTarget.elements;
+    const formElements = formEl.elements;
     const email = formElements.email.value;
     const message = formElements.message.value;
     formData.email = email;
@@ -529,6 +529,8 @@ function getSavedItems() {
         formEl.elements.email.value = savedItems.email;
         formEl.elements.message.value = savedItems.message;
     }
+    formData.email = formEl.elements.email.value;
+    formData.message = formEl.elements.message.value;
 }
 
 },{"lodash.throttle":"bGJVT"}],"bGJVT":[function(require,module,exports) {
